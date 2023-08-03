@@ -81,32 +81,61 @@ console.log(find(4, [1, 3, 4]))
 // 8. Function to check if a letter is the first letter in a 
 //    string. Return true if it is, and false otherwise
 function isFirstLetter(letter, string) {
-
+  let i = string.length;
+  while (i--) {
+     if (string[i] === letter) {
+         return true;
+     }
+  }
+  return false
 }
-console.log('isFirstLetter - should say true', isFirstLetter('a', 'apple'));
-console.log('isFirstLetter - should say false', isFirstLetter('z', 'apple'));
+console.log(isFirstLetter('a', 'apple'));
+console.log(isFirstLetter('z', 'apple'));
 
 // 9. Function to return the sum of all numbers in an array
-function sumAll() {
+function sumAll(array) {
   let sum = 0;
   // TODO: loop to add items
-
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i]
+  }
   // TODO: return the sum
+  return sum
 }
-
+console.log(sumAll([1, 2, 3, 4, 5]))
 // 10. Function to return a new array of all positive (greater than zero)
 //     numbers contained in an input array. If there are no positive numbers
 //     return an empty array. Note: The input array should not change.
-function allPositive() {
-
+function allPositive(array) {
+  let positiveArray = []
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] > 0) {
+      positiveArray.unshift(array[i])
+    }
+  }
+  positiveArray.sort();
+  return positiveArray
 }
-
+let testArray = [-2, -1, 0, 2, 5, 6, 1] 
+console.log(allPositive(testArray))
+console.log(testArray)
 
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
-
-
+// Create a function that takes a number as an argument. 
+// Add up all the numbers from 1 to the number you passed to the function. 
+// For example, if the input is 4 then your function should return 10 because 1 + 2 + 3 + 4 = 10.
+function addUp(num) {
+	let sum = 0
+	for (let i = 0; i <= num; i ++) {
+		sum = (num * (num+1))/2
+	}
+	return sum
+}
+console.log(addUp(4))
+console.log(addUp(23))
+console.log(addUp(600))
 // DO NOT MODIFY
 // Used for automated testing
 try {
